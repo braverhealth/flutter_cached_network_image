@@ -12,6 +12,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
+typedef FileDecoderCallback = Future<ui.Codec> Function(Uint8List);
+
 /// IO implementation of the CachedNetworkImageProvider; the ImageProvider to
 /// load network images using a cache.
 @immutable
@@ -71,7 +73,7 @@ class CachedNetworkImageProvider
   @override
   ImageStreamCompleter load(
     CachedNetworkImageProvider key,
-    DecoderCallback decode,
+    FileDecoderCallback decode,
   ) {
     final chunkEvents = StreamController<ImageChunkEvent>();
     return MultiImageStreamCompleter(
@@ -92,7 +94,7 @@ class CachedNetworkImageProvider
   Stream<ui.Codec> _loadAsync(
     CachedNetworkImageProvider key,
     StreamController<ImageChunkEvent> chunkEvents,
-    DecoderCallback decode,
+    FileDecoderCallback decode,
   ) {
     assert(key == this);
     return ImageLoader().loadAsync(

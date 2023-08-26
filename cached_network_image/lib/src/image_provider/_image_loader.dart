@@ -13,6 +13,8 @@ import 'package:cached_network_image_platform_interface'
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
+typedef FileDecoderCallback = Future<ui.Codec> Function(Uint8List);
+
 /// ImageLoader class to load images on IO platforms.
 class ImageLoader implements platform.ImageLoader {
   @Deprecated('Use loadImageAsync instead')
@@ -21,7 +23,7 @@ class ImageLoader implements platform.ImageLoader {
     String url,
     String? cacheKey,
     StreamController<ImageChunkEvent> chunkEvents,
-    DecoderCallback decode,
+    FileDecoderCallback decode,
     BaseCacheManager cacheManager,
     int? maxHeight,
     int? maxWidth,
@@ -114,7 +116,7 @@ class ImageLoader implements platform.ImageLoader {
     String url,
     String? cacheKey,
     StreamController<ImageChunkEvent> chunkEvents,
-    _FileDecoderCallback decode,
+    FileDecoderCallback decode,
     BaseCacheManager cacheManager,
     int? maxHeight,
     int? maxWidth,
@@ -178,5 +180,3 @@ class ImageLoader implements platform.ImageLoader {
     }
   }
 }
-
-typedef _FileDecoderCallback = Future<ui.Codec> Function(Uint8List);
