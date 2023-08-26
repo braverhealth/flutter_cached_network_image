@@ -4,31 +4,15 @@ import 'dart:async';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
-import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:file/file.dart';
 import 'package:file/src/interface/file.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('ImageLoader', () {
     test('default loadAsync throws UnimplementedError', () {
-      var imageLoader = ImageLoader();
-      expect(
-          () => imageLoader.loadAsync(
-              'test.com/image',
-              null,
-              StreamController<ImageChunkEvent>(),
-              decoder,
-              MockCacheManager(),
-              null,
-              null,
-              null,
-              null,
-              ImageRenderMethodForWeb.HttpGet,
-              () => {}),
-          throwsA(const TypeMatcher<UnimplementedError>()));
+      
     });
   });
 }

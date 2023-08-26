@@ -20,24 +20,6 @@ enum ImageRenderMethodForWeb {
 
 /// ImageLoader class to load images differently on various platforms.
 class ImageLoader {
-  /// loads the images async and gives the resulted codecs on a Stream. The
-  /// Stream gives the option to show multiple images after each other.
-  @Deprecated('Use loadBufferAsync instead')
-  Stream<ui.Codec> loadAsync(
-    String url,
-    String? cacheKey,
-    StreamController<ImageChunkEvent> chunkEvents,
-    DecoderCallback decode,
-    BaseCacheManager cacheManager,
-    int? maxHeight,
-    int? maxWidth,
-    Map<String, String>? headers,
-    ValueChanged<Object>? errorListener,
-    ImageRenderMethodForWeb imageRenderMethodForWeb,
-    VoidCallback evictImage,
-  ) {
-    throw UnimplementedError();
-  }
 
   /// loads the images async and gives the resulted codecs on a Stream. The
   /// Stream gives the option to show multiple images after each other.
